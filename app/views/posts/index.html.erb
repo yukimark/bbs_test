@@ -1,0 +1,14 @@
+<ul>
+  <li><%= link_to("新規作成","/posts/new") %></li>
+</ul>
+<h2>投稿一覧</h2>
+<dl>
+  <%# <div class="indexList"> %>
+    <% @post.each do |post| %>
+    <dt><%= post.name %></dt>
+    <dd><%= post.text %></dd>
+    <%= link_to("編集","/posts/#{post.id}/edit") %>
+    <%= link_to("削除","/posts/#{post.id}/destroy",method: :post,data:{confirm:'削除しますか?'}) %>
+    <% end %>
+  <%# </div> %>
+</dl>

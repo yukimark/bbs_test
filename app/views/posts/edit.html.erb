@@ -1,0 +1,9 @@
+<h2>投稿の編集</h2>
+<%= form_tag("/posts/#{@post.id}/update",method: :post) do %>
+<p>名前</p>
+<input type="text" name="name" value="<%= @post.name %>">
+<p>内容</p>
+<textarea name="text" id="" cols="30" rows="10" ><%= @post.text %></textarea><br>
+<input type="submit"><br>
+<% end %>
+<%= link_to("トップページへ戻る","/") %>

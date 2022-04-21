@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <title>BbsTest</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,6 +12,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>掲示板のサンプル</h1>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
