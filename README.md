@@ -1,5 +1,8 @@
 # README
 
+次は、htmlをslimで書いてみたい
+あと、routesをresourcesみたいなやつで書いてみたい
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
