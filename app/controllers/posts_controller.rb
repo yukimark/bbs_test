@@ -1,23 +1,20 @@
 class PostsController < ApplicationController
-
   def index
     @post = Post.all.order(created_at: :desc)
   end
 
-  def new
-
-  end
+  def new; end
 
   def create
-    @post = Post.new(name:params[:name],text:params[:text])
+    @post = Post.new(name: params[:name], text: params[:text])
     @post.save
     if @post.save
-      redirect_to("/")
+      redirect_to('/')
     else
-      render("posts/new")
+      render('posts/new')
     end
   end
-    
+
   def edit
     @post = Post.find_by(id: params[:id])
   end
@@ -28,17 +25,15 @@ class PostsController < ApplicationController
     @post.text = params[:text]
     @post.save
     if @post.save
-      redirect_to("/")
+      redirect_to('/')
     else
-      render("posts/edit")
+      render('posts/edit')
     end
-
   end
 
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
-    redirect_to("/")
+    redirect_to('/')
   end
-
 end
