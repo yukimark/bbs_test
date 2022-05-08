@@ -1,16 +1,12 @@
-h2
-  | 投稿の編集
+h2 投稿の編集
 = form_tag("/posts/#{@post.id}/update",method: :post) do
-  p
+  p 
     | 名前
-  |  <input type="text" name="name" value="
-  = @post.name
-  | "> 
-  p
+  input type="text" name="name" value="#{@post.name}"
+  p 
     | 内容
-  textarea[name="text" cols="30" rows="10"]
-    = @post.text
+  textarea name="text" cols="30" rows="10" = @post.text
   br
-  input[type="submit"]
+  input type="submit"
   br
 = link_to("トップページへ戻る","/")
