@@ -61,6 +61,7 @@ Style/AsciiComments:
 
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
+  Enabled: false
 
 Style/FrozenStringLiteralComment:
   Enabled: false
