@@ -57,3 +57,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
+
+# 入れておくと良さそうなgem書いておきます
+# html.slimにする slim-rails
+# bootstrap系(HTML系の記述を楽にする)
+# デバッグツール pry-rails
+# modelのファイルにテーブル情報をコメントしてくれる annotate

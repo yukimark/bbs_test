@@ -1,5 +1,6 @@
 <h2>投稿の編集</h2>
 <%= form_tag("/posts/#{@post.id}/update",method: :post) do %>
+<!-- モデルのカラムに関する名称は日本語ではなくymlファイルに設定して書いた方が良いです https://qiita.com/shimadama/items/7e5c3d75c9a9f51abdd5 -->
 <p>名前</p>
 <input type="text" name="name" value="<%= @post.name %>">
 <p>内容</p>
