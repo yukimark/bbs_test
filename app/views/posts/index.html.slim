@@ -1,12 +1,14 @@
-ul
-  li
-    = link_to("新規作成","/posts/new")
-h2 投稿一覧
-dl
-  - @post.each do |post|
-    dt
-      = post.name
-    dd
-      = post.text
-    = link_to("編集","/posts/#{post.id}/edit")
-    = link_to("削除","/posts/#{post.id}/destroy",method: :post,data:{confirm:'削除しますか?'})
+ul.list-group
+  li.list-group-item.litem = link_to("新規作成","/posts/new")
+.mainc.bg-light
+  h2 投稿一覧
+  dl.dl-flex
+    - @post.each do |post|
+      .border.border-success.mb-3
+        dt.mt-3
+          = post.name
+        dd
+          = post.text
+        .d-flex.justify-content-end
+          = link_to '編集', "/posts/#{post.id}/edit", class: 'btn btn-primary button'
+          = link_to '削除', "/posts/#{post.id}/destroy", method: :post, data:{confirm:'削除しますか?'}, class: 'btn btn-primary button'
