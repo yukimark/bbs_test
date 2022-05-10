@@ -7,12 +7,22 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(name: params[:name], text: params[:text])
-    @post.save
-    if @post.save
+    # @post.save
+    # if @post.save
+    #   flash[:notice] = "#{@post.name}さんの投稿を保存しました。"
+    #   redirect_to('/')
+    # else
+    #   render('posts/new')
+    # end
+    # 間違えていたときのために残してる
+
+    begin
+      @post.save!
       flash[:notice] = "#{@post.name}さんの投稿を保存しました。"
       redirect_to('/')
-    else
-      render('posts/new')
+    rescue ActiveRecord::RecordInvalid => e
+      puts e
+      flash[:notice] = "#{@post.name}さんの投稿を保存できませんでした。"
     end
 
   end
