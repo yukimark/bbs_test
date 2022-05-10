@@ -28,11 +28,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
     @post.name = params[:name]
     @post.text = params[:text]
     # if @post.save
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
     @post.destroy
     if @post.destroy
       flash[:notice] = "投稿を削除しました。"
