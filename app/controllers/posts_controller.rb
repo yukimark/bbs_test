@@ -35,12 +35,21 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.name = params[:name]
     @post.text = params[:text]
-    @post.save
-    if @post.save
+    # if @post.save
+    #   flash[:notice] = "#{@post.name}さんの投稿を編集しました。"
+    #   redirect_to('/')
+    # else
+    #   render('posts/edit')
+    # end
+    # 残しておく
+
+    begin
+      @post.save!
       flash[:notice] = "#{@post.name}さんの投稿を編集しました。"
       redirect_to('/')
-    else
-      render('posts/edit')
+    rescue ActiveRecord::RecordInvalid => e
+      puts e
+      flash[:notice] = "#{@post.name}さんの投稿を編集できませんでした。"
     end
   end
 
