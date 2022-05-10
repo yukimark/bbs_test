@@ -60,3 +60,5 @@ gem 'rubocop-rails', require:false
 gem 'slim-rails'
 gem 'html2slim'
 gem 'bootstrap'
+gem 'pry-rails'
+gem 'annotate'
