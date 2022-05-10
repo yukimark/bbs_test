@@ -27,6 +27,7 @@ class PostsController < ApplicationController
     @post.text = params[:text]
     @post.save
     if @post.save
+      flash[:notice] = "#{@post.name}さんの投稿を編集しました。"
       redirect_to('/')
     else
       render('posts/edit')
@@ -36,6 +37,9 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     @post.destroy
+    if @post.destroy
+      flash[:notice] = "投稿を削除しました。"
+    end
     redirect_to('/')
   end
 end
