@@ -9,10 +9,12 @@ class PostsController < ApplicationController
     @post = Post.new(name: params[:name], text: params[:text])
     @post.save
     if @post.save
+      flash[:notice] = "#{@post.name}さんの投稿を保存しました。"
       redirect_to('/')
     else
       render('posts/new')
     end
+
   end
 
   def edit
