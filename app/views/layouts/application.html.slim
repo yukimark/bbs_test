@@ -13,4 +13,6 @@ html[lang="ja"]
     header.container.app-title.navbar.navbar-expand-md.navbar-light.bg-light
       h1 掲示板のサンプル
     main.container
+      - if flash.notice.present?
+        .alert.alert-success= flash.notice
       = yield
