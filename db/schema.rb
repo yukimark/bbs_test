@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2022_04_21_051632) do
   create_table "posts", force: :cascade do |t|
     t.string "name"
     t.text "text"
+    t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -63,3 +63,5 @@ gem 'bootstrap'
 gem 'pry-rails'
 gem 'annotate'
 gem 'rails-i18n'
+gem 'paranoia'
+
