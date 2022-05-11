@@ -1,5 +1,11 @@
 ja:
-  posts:
-    index:
-      edit: '編集'
-      destroy: '削除'
+  activerecord:
+    models:
+    attributes:
+      post:
+        id: ID
+        name: 名前
+        text: 内容
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日

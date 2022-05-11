@@ -1,10 +1,10 @@
 h2 新規作成
 = form_tag('/posts/create',method: :post) do
   p
-    | 名前
+    = Post.human_attribute_name(:name)
   input type="text" name="name"
   p
-    | 内容
+    = Post.human_attribute_name(:text)
   textarea name="text" cols="30" rows="10"
   br
   input type="submit"
