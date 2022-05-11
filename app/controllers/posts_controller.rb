@@ -18,13 +18,13 @@ class PostsController < ApplicationController
 
     begin
       @post.save!
-      flash[:notice] = "#{@post.name}さんの投稿を保存しました。"
+      flash[:notice] = "#{ @post.name }さんの投稿を保存しました。"
       redirect_to('/')
     rescue ActiveRecord::RecordInvalid => e
-      p e
-      flash[:notice] = "#{@post.name}さんの投稿を保存できませんでした。"
+      puts e
+      flash[:notice] = "#{ @post.name }さんの投稿を保存できませんでした。"
+      render 'posts/new'
     end
-
   end
 
   def edit
@@ -45,25 +45,25 @@ class PostsController < ApplicationController
 
     begin
       @post.save!
-      flash[:notice] = "#{@post.name}さんの投稿を編集しました。"
+      flash[:notice] = "#{ @post.name }さんの投稿を編集しました。"
       redirect_to('/')
     rescue ActiveRecord::RecordInvalid => e
-      p e
-      flash[:notice] = "#{@post.name}さんの投稿を編集できませんでした。"
+      puts e
+      flash[:notice] = "#{ @post.name }さんの投稿を編集できませんでした。"
+      render 'posts/edit'
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    if @post.destroy
-      flash[:notice] = "投稿を削除しました。"
-    end
+    flash[:notice] = '投稿を削除しました。'
     redirect_to('/')
   end
 
   private
+
   def post_params
-    params.permit(:name,:text)
+    params.permit(:name, :text)
   end
 end
