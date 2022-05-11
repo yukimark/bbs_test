@@ -14,5 +14,4 @@ class Post < ApplicationRecord
   validates :text, presence: true
 
   acts_as_paranoid
-
 end
