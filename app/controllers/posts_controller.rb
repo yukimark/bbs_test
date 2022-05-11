@@ -21,7 +21,7 @@ class PostsController < ApplicationController
       flash[:notice] = "#{ @post.name }さんの投稿を保存しました。"
       redirect_to('/')
     rescue ActiveRecord::RecordInvalid => e
-      puts e
+      put e
       flash[:notice] = "#{ @post.name }さんの投稿を保存できませんでした。"
       render 'posts/new'
     end
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
       flash[:notice] = "#{ @post.name }さんの投稿を編集しました。"
       redirect_to('/')
     rescue ActiveRecord::RecordInvalid => e
-      puts e
+      put e
       flash[:notice] = "#{ @post.name }さんの投稿を編集できませんでした。"
       render 'posts/edit'
     end
