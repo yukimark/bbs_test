@@ -1,0 +1,5 @@
+ja:
+  posts:
+    index:
+      edit: '編集'
+      destroy: '削除'
