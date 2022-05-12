@@ -1,9 +1,12 @@
 ja:
+  edit: '編集'
+  destroy: '削除'
+  top: 'トップページへ戻る'
+  new: '新規作成'
+  bbs_test: '掲示板のサンプル'
+  delete_question: '削除しますか?'
   posts:
     index:
-      edit: '編集'
-      destroy: '削除'
+      post_index: '投稿一覧'
     edit:
-      top: 'トップページへ戻る'
-    new:
-      top: 'トップページへ戻る'
+      post_edit: '投稿の編集'

@@ -1,4 +1,4 @@
-h2 投稿の編集
+h2 = t('.post_edit')
 = form_tag({action: 'update'}, {method: 'patch'}) do
   p 
     = Post.human_attribute_name(:name)
@@ -9,4 +9,4 @@ h2 投稿の編集
   br
   input type="submit"
   br
-= link_to t('.top'), root_path
+= link_to t('top'), root_path

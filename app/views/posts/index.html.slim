@@ -1,8 +1,8 @@
 ul.list-group
   li.list-group-item.litem
-    = link_to '新規作成', new_post_path
+    = link_to t('new'), new_post_path
 .mainc.bg-light
-  h2 投稿一覧
+  h2 = t('.post_index')
   dl.dl-flex
     - @post.each do |post|
       .border.border-success.mb-3
@@ -11,5 +11,5 @@ ul.list-group
         dd
           = post.text
         .d-flex.justify-content-end
-          = link_to t('.edit'), edit_post_path(post), class: 'btn btn-primary'
-          = link_to t('.destroy'), post, method: :delete, data:{confirm:'削除しますか?'}, class: 'btn btn-primary button'
+          = link_to t('edit'), edit_post_path(post), class: 'btn btn-primary'
+          = link_to t('destroy'), post, method: :delete, data:{confirm: t('delete_question')}, class: 'btn btn-primary button'
