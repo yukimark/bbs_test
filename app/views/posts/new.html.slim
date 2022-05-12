@@ -1,5 +1,5 @@
-h2 新規作成
-= form_tag('/posts/create',method: :post) do
+h2 = t('new')
+= form_tag({action: 'create'}, {method: 'post'}) do
   p
     = Post.human_attribute_name(:name)
   input type="text" name="name"
@@ -9,4 +9,4 @@ h2 新規作成
   br
   input type="submit"
   br
-= link_to t('.top'), "/"
+= link_to t('top'), root_path

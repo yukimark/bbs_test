@@ -7,23 +7,15 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    # @post.save
-    # if @post.save
-    #   flash[:notice] = "#{@post.name}さんの投稿を保存しました。"
-    #   redirect_to('/')
-    # else
-    #   render('posts/new')
-    # end
-    # 間違えていたときのために残してる
 
     begin
       @post.save!
-      flash[:notice] = "#{ @post.name }さんの投稿を保存しました。"
-      redirect_to('/')
+      flash[:notice] = t('post_new_success', { name: @post.name })
+      redirect_to root_path
     rescue ActiveRecord::RecordInvalid => e
       logger.debug(e)
-      flash[:notice] = '投稿を保存できませんでした。'
-      render 'posts/new'
+      flash[:notice] = t('post_new_failed')
+      render :new
     end
   end
 
@@ -35,30 +27,23 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.name = post_params[:name]
     @post.text = post_params[:text]
-    # if @post.save
-    #   flash[:notice] = "#{@post.name}さんの投稿を編集しました。"
-    #   redirect_to('/')
-    # else
-    #   render('posts/edit')
-    # end
-    # 残しておく
 
     begin
       @post.save!
-      flash[:notice] = "#{ @post.name }さんの投稿を編集しました。"
-      redirect_to('/')
+      flash[:notice] = t('post_edit_success', { name: @post.name })
+      redirect_to root_path
     rescue ActiveRecord::RecordInvalid => e
       logger.debug(e)
-      flash[:notice] = "#{ @post.name }さんの投稿を編集できませんでした。"
-      render 'posts/edit'
+      flash[:notice] = t('post_edit_failed')
+      render :edit
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:notice] = '投稿を削除しました。'
-    redirect_to('/')
+    flash[:notice] = t('post_destroy_success')
+    redirect_to root_path
   end
 
   private
