@@ -22,7 +22,7 @@ class PostsController < ApplicationController
       redirect_to('/')
     rescue ActiveRecord::RecordInvalid => e
       logger.debug(e)
-      flash[:notice] = "投稿を保存できませんでした。"
+      flash[:notice] = '投稿を保存できませんでした。'
       render 'posts/new'
     end
   end
