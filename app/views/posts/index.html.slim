@@ -1,5 +1,6 @@
 ul.list-group
-  li.list-group-item.litem = link_to("新規作成","/posts/new")
+  li.list-group-item.litem
+    = link_to '新規作成', new_post_path
 .mainc.bg-light
   h2 投稿一覧
   dl.dl-flex
@@ -10,5 +11,5 @@ ul.list-group
         dd
           = post.text
         .d-flex.justify-content-end
-          = link_to t('.edit'), "/posts/#{post.id}/edit", class: 'btn btn-primary button'
-          = link_to t('.destroy'), "/posts/#{post.id}/destroy", method: :post, data:{confirm:'削除しますか?'}, class: 'btn btn-primary button'
+          = link_to t('.edit'), edit_post_path(post), class: 'btn btn-primary'
+          = link_to t('.destroy'), post, method: :delete, data:{confirm:'削除しますか?'}, class: 'btn btn-primary button'
