@@ -1,6 +1,8 @@
 ja:
   post_new_success: "%{name}さんの投稿を保存しました。"
-  post_new_failed: '投稿を保存できませんでした。'
   post_edit_success: "%{name}さんの投稿を編集しました。"
-  post_edit_failed: '投稿を編集できませんでした。'
   post_destroy_success: '投稿を削除しました。'
+  errors:
+    models:
+      post:
+        format: "%{attribute}: %{message}"

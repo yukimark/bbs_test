@@ -10,11 +10,9 @@ class PostsController < ApplicationController
 
     begin
       @post.save!
-      flash[:notice] = t('post_new_success', { name: @post.name })
-      redirect_to root_path
+      redirect_to root_path notice: t('post_new_success', { name: @post.name })
     rescue ActiveRecord::RecordInvalid => e
-      logger.debug(e)
-      flash[:notice] = t('post_new_failed')
+      @error = e
       render :new
     end
   end
@@ -30,11 +28,9 @@ class PostsController < ApplicationController
 
     begin
       @post.save!
-      flash[:notice] = t('post_edit_success', { name: @post.name })
-      redirect_to root_path
+      redirect_to root_path notice: t('post_edit_success', { name: @post.name })
     rescue ActiveRecord::RecordInvalid => e
-      logger.debug(e)
-      flash[:notice] = t('post_edit_failed')
+      @error = e
       render :edit
     end
   end
@@ -42,8 +38,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:notice] = t('post_destroy_success')
-    redirect_to root_path
+    redirect_to root_path notice: t('post_destroy_success')
   end
 
   private
