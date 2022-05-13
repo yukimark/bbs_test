@@ -1,4 +1,7 @@
 h2 = t('.post_edit')
+- if @error.present?
+  .alert.alert-danger
+    = @error
 = form_tag({action: 'update'}, {method: 'patch'}) do
   p 
     = Post.human_attribute_name(:name)

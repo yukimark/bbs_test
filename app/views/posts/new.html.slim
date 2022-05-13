@@ -1,4 +1,7 @@
 h2 = t('new')
+- if @error.present?
+  .alert.alert-danger
+    = @error
 = form_tag({action: 'create'}, {method: 'post'}) do
   p
     = Post.human_attribute_name(:name)
