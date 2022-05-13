@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
     begin
       @post.save!
-      redirect_to root_path notice: t('post_new_success', { name: @post.name })
+      redirect_to root_path, notice: t('post_new_success', { name: @post.name })
     rescue ActiveRecord::RecordInvalid => e
       @error = e
       render :new
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
     begin
       @post.save!
-      redirect_to root_path notice: t('post_edit_success', { name: @post.name })
+      redirect_to root_path, notice: t('post_edit_success', { name: @post.name })
     rescue ActiveRecord::RecordInvalid => e
       @error = e
       render :edit
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to root_path notice: t('post_destroy_success')
+    redirect_to root_path, notice: t('post_destroy_success')
   end
 
   private
