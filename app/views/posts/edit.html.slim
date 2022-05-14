@@ -1,15 +1,2 @@
 h2 = t('.post_edit')
-- if @error.present?
-  .alert.alert-danger
-    = @error
-= form_tag({action: 'update'}, {method: 'patch'}) do
-  p 
-    = Post.human_attribute_name(:name)
-  input type="text" name="name" value="#{@post.name}"
-  p 
-    = Post.human_attribute_name(:text)
-  textarea name="text" cols="30" rows="10" = @post.text
-  br
-  input type="submit"
-  br
-= link_to t('top'), root_path
+= render partial: 'form'
