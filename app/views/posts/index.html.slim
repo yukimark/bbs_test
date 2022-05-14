@@ -4,7 +4,7 @@ ul.list-group
 .mainc.bg-light
   h2 = t('.post_index')
   dl.dl-flex
-    - @post.each do |post|
+    - @posts.each do |post|
       .border.border-success.mb-3
         dt.mt-3
           = post.name
