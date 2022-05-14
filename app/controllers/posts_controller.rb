@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.all.order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc)
   end
 
-  def new; end
+  def new
+    @post = Post.new
+  end
 
   def create
     @post = Post.new(post_params)
-
     begin
       @post.save!
       redirect_to root_path, notice: t('post_new_success', { name: @post.name })
@@ -23,11 +24,8 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.name = post_params[:name]
-    @post.text = post_params[:text]
-
     begin
-      @post.save!
+      @post.update!(post_params)
       redirect_to root_path, notice: t('post_edit_success', { name: @post.name })
     rescue ActiveRecord::RecordInvalid => e
       @error = e
@@ -44,6 +42,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:name, :text)
+    params.require(:post).permit(:name, :text)
   end
 end

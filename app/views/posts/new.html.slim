@@ -1,15 +1,2 @@
 h2 = t('new')
-- if @error.present?
-  .alert.alert-danger
-    = @error
-= form_tag({action: 'create'}, {method: 'post'}) do
-  p
-    = Post.human_attribute_name(:name)
-  input type="text" name="name"
-  p
-    = Post.human_attribute_name(:text)
-  textarea name="text" cols="30" rows="10"
-  br
-  input type="submit"
-  br
-= link_to t('top'), root_path
+= render partial: 'form'
