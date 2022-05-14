@@ -3,10 +3,12 @@ class PostsController < ApplicationController
     @post = Post.all.order(created_at: :desc)
   end
 
-  def new; end
+  def new
+    @post = Post.new
+  end
 
   def create
-    @post = Post.new(post_params)
+    @post = posts.new(post_params)
 
     begin
       @post.save!
@@ -44,6 +46,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:name, :text)
+    params.require(:post).permit(:name, :text)
   end
 end
