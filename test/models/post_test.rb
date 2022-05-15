@@ -4,6 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  deleted_at :datetime
+#  early      :string
 #  name       :string
 #  text       :text
 #  created_at :datetime         not null
