@@ -8,7 +8,7 @@ ul.list-group
       .border.border-success.mb-3
         dt.mt-3
           = post.name
-        - if post.early === '1'
+        - if post.attention == 1
           dd.text-danger
             = post.text
         - else 

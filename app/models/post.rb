@@ -3,8 +3,8 @@
 # Table name: posts
 #
 #  id         :integer          not null, primary key
+#  attention  :integer
 #  deleted_at :datetime
-#  early      :string
 #  name       :string
 #  text       :text
 #  created_at :datetime         not null
