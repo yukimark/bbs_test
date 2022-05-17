@@ -12,8 +12,8 @@ class PostsController < ApplicationController
     begin
       @post.save!
       redirect_to root_path, notice: t('post_new_success', { name: @post.name })
-    rescue ActiveRecord::RecordInvalid => e
-      @error = e
+    rescue 
+      @error = @post.error_message
       render :new
     end
   end
@@ -27,8 +27,8 @@ class PostsController < ApplicationController
     begin
       @post.update!(post_params)
       redirect_to root_path, notice: t('post_edit_success', { name: @post.name })
-    rescue ActiveRecord::RecordInvalid => e
-      @error = e
+    rescue
+      @error = @post.error_message
       render :edit
     end
   end
