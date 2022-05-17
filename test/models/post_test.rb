@@ -3,7 +3,7 @@
 # Table name: posts
 #
 #  id         :integer          not null, primary key
-#  attention  :integer
+#  attention  :boolean          default(FALSE), not null
 #  deleted_at :datetime
 #  name       :string
 #  text       :text

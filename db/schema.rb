@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_05_16_100907) do
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "attention"
+    t.boolean "attention", default: false, null: false
   end
 
 end

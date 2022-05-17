@@ -1,6 +1,5 @@
 - if @error.present?
-  .alert.alert-danger
-    = @error
+  .alert.alert-danger= @error
 = form_with model: @post, local: true do |f|
   .form-group
     = f.label :name

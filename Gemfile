@@ -71,4 +71,3 @@ gem 'annotate'
 gem 'rails-i18n'
 # 論理削除を使うため
 gem 'paranoia'
-
