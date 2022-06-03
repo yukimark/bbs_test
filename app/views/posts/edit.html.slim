@@ -1,12 +1,2 @@
-h2 投稿の編集
-= form_tag("/posts/#{@post.id}/update",method: :post) do
-  p 
-    | 名前
-  input type="text" name="name" value="#{@post.name}"
-  p 
-    | 内容
-  textarea name="text" cols="30" rows="10" = @post.text
-  br
-  input type="submit"
-  br
-= link_to("トップページへ戻る","/")
+h2 = t('.post_edit')
+= render partial: 'form'

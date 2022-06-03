@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
     create_table :posts do |t|
       t.string :name
       t.text :text
+      t.datetime :deleted_at
 
       t.timestamps
     end

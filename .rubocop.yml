@@ -119,3 +119,18 @@ AllCops:
     - vendor/bundle/**/*
     # ルーティング設定はコードが増えて行く一方なので外します
     - config/routes/*
+
+
+# annotate追加時からこの記述なので省略
+Metrics/BlockLength:
+  Exclude:
+    - lib/tasks/auto_annotate_models.rake
+
+# rubocopに従うとエラーが出たので除外
+Rails/RakeEnvironment:
+  Exclude:
+    - lib/tasks/auto_annotate_models.rake
+
+# 必要な記述なので除外
+Style/RedundantSelf:
+  Enabled: false

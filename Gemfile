@@ -55,7 +55,19 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# 自動でlintしてくれる
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
+# html.slimを使うため
 gem 'slim-rails'
 gem 'html2slim'
+# cssフレームワーク
+gem 'bootstrap'
+# デバッグ用
+gem 'pry-rails'
+# テーブルの情報をmodelに書き出してくれる
+gem 'annotate'
+# 日本語化の設定
+gem 'rails-i18n'
+# 論理削除を使うため
+gem 'paranoia'

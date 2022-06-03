@@ -1,39 +1,45 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.all.order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc)
   end
 
-  def new; end
+  def new
+    @post = Post.new
+  end
 
   def create
-    @post = Post.new(name: params[:name], text: params[:text])
-    @post.save
-    if @post.save
-      redirect_to('/')
-    else
-      render('posts/new')
+    @post = Post.new(post_params)
+    begin
+      @post.save!
+      redirect_to root_path, notice: t('post_new_success', { name: @post.name })
+    rescue @error = @post.error_message
+      render :new
     end
   end
 
   def edit
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find_by(id: params[:id])
-    @post.name = params[:name]
-    @post.text = params[:text]
-    @post.save
-    if @post.save
-      redirect_to('/')
-    else
-      render('posts/edit')
+    @post = Post.find(params[:id])
+    begin
+      @post.update!(post_params)
+      redirect_to root_path, notice: t('post_edit_success', { name: @post.name })
+    rescue @error = @post.error_message
+      render :edit
     end
   end
 
   def destroy
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
     @post.destroy
-    redirect_to('/')
+    redirect_to root_path, notice: t('post_destroy_success')
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:name, :text, :attention)
   end
 end

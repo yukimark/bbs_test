@@ -1,12 +1,15 @@
-ul
-  li
-    = link_to("新規作成","/posts/new")
-h2 投稿一覧
-dl
-  - @post.each do |post|
-    dt
-      = post.name
-    dd
-      = post.text
-    = link_to("編集","/posts/#{post.id}/edit")
-    = link_to("削除","/posts/#{post.id}/destroy",method: :post,data:{confirm:'削除しますか?'})
+ul.list-group
+  li.list-group-item.w-25.p-3.text-center
+    = link_to t('new'), new_post_path
+.mainc.bg-light
+  h2 = t('.post_index')
+  dl.dl-flex
+    - @posts.each do |post|
+      .border.border-success.mb-3
+        dt.mt-3
+          = post.name
+        dd class="#{ 'text-danger' if post.attention }"
+          = post.text
+        .d-flex.justify-content-end
+          = link_to t('edit'), edit_post_path(post), class: 'btn btn-primary me-3'
+          = link_to t('destroy'), post, method: :delete, data:{confirm: t('delete_question')}, class: 'btn btn-danger'
